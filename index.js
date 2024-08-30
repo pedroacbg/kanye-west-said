@@ -126,6 +126,5 @@ reloadQuote.addEventListener("click", function () {
 });
 
 window.onload = function () {
-  togglePlay();
   quote();
 };
