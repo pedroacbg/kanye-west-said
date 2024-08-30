@@ -9,6 +9,8 @@ const prevButton = document.getElementById("prev");
 const nextButton = document.getElementById("next");
 const playButton = document.getElementById("play");
 const background = document.getElementById("bg-img");
+const reloadQuote = document.getElementById("reload");
+const textQuote = document.getElementById("quote-text");
 
 const music = new Audio();
 
@@ -41,6 +43,7 @@ const songs = [
 
 let musicIndex = 0;
 let isPlaying = false;
+let allData;
 
 function togglePlay() {
   if (isPlaying) {
@@ -106,3 +109,23 @@ music.addEventListener("timeupdate", updateProgressBar);
 playerProgress.addEventListener("click", setProgressBar);
 
 loadMusic(songs[musicIndex]);
+
+const quote = async function () {
+  const url = "https://api.kanye.rest";
+  try {
+    const response = await fetch(url);
+    allData = await response.json();
+    textQuote.textContent = allData.quote;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+reloadQuote.addEventListener("click", function () {
+  quote();
+});
+
+window.onload = function () {
+  togglePlay();
+  quote();
+};

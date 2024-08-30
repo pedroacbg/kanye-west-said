@@ -175,18 +175,18 @@ h3 {
   justify-content: center;
   color: #fff;
   font-size: 24px;
-  margin-bottom: 25px;
 }
 
 .quote-text {
   color: #000;
-  font-size: 26px;
+  font-size: 22px;
   font-weight: 700;
 }
 
 .fa-repeat {
-  display: flex;
-  justify-content: end;
+  position: absolute;
+  top: 80%;
+  left: 95%;
   color: #373737;
   cursor: pointer;
 }
